@@ -1,0 +1,168 @@
+/* ================================================
+   🧩 Tailwind Base Imports
+   ================================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* smooth modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5f5;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #818cf8;
+}
+/* Hide scrollbars but keep scroll */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;            /* Chrome, Safari */
+}
+
+/* ================================================
+   🌐 Global Styles for CashFlow Pro Dashboard
+   ================================================ */
+
+
+aside {
+  overflow-x: hidden;
+}
+
+/* Apply-row layout for buttons next to selects */
+.apply-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+}
+
+/* -----------------------------------------------
+   🔔 Bell Icon Wiggle Animation
+   ----------------------------------------------- */
+@keyframes bell-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(-10deg); }
+  20% { transform: rotate(8deg); }
+  30% { transform: rotate(-6deg); }
+  40% { transform: rotate(4deg); }
+  50% { transform: rotate(-2deg); }
+}
+
+.bell-ringing {
+  animation: bell-wiggle 1.2s ease-in-out infinite;
+  transform-origin: 50% 10%;
+}
+
+/* -----------------------------------------------
+   📊 Scrollable Tables with Sticky Headers
+   ----------------------------------------------- */
+.table-wrapper {
+  max-height: 500px;
+  overflow: auto;
+  position: relative;
+}
+
+.table-wrapper thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  box-shadow: 0 1px 0 0 rgb(226 232 240);
+}
+
+/* -----------------------------------------------
+   📱 Sidebar Overlay (Mobile)
+   ----------------------------------------------- */
+#sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 30;
+}
+
+#sidebar-overlay.active {
+  display: block;
+}
+
+/* -----------------------------------------------
+   🍔 Hamburger Button Styling
+   ----------------------------------------------- */
+#sidebar-toggle {
+  background-color: white;
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+/* -----------------------------------------------
+   📲 Bell Icon Fixed to Top-Right (Mobile)
+   ----------------------------------------------- */
+@media (max-width: 1023px) {
+  #btn-notify {
+    position: fixed !important;
+    top: 1rem;
+    right: 1rem;
+    z-index: 50;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow:
+      0 1px 3px 0 rgb(0 0 0 / 0.1),
+      0 1px 2px -1px rgb(0 0 0 / 0.1);
+  }
+}
+/* -----------------------------------------------
+   🚫 Disable Hamburger Button when Sidebar is Open
+   ----------------------------------------------- */
+#sidebar-toggle.hidden,
+#sidebar-toggle:disabled {
+  opacity: 0;
+  pointer-events: none;
+  cursor: not-allowed;
+  transition: opacity 0.2s ease-in-out;
+}
+/* Global style for scrollable tables */
+.table-scroll {
+  max-height: 60vh;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.table-scroll thead th {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+}
+/* --- Custom React DatePicker Styles --- */
+.react-datepicker {
+  font-family: inherit !important;
+  border-radius: 0.75rem !important;
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1) !important;
+  overflow: hidden;
+}
+.react-datepicker__header {
+  background-color: #f8fafc !important;
+  border-bottom: 1px solid #e2e8f0 !important;
+  padding-top: 10px !important;
+}
+.react-datepicker__day--selected, 
+.react-datepicker__day--keyboard-selected {
+  background-color: #4f46e5 !important; /* Tailwind Indigo-600 */
+  color: white !important;
+  border-radius: 0.375rem !important;
+}
+.react-datepicker__day:hover {
+  border-radius: 0.375rem !important;
+}
+.react-datepicker__triangle {
+  display: none !important; /* Hides the little top arrow for a cleaner floating look */
+}

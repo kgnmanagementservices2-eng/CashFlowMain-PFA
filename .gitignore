@@ -1,0 +1,4 @@
+cashflow-backend/.env
+client/src/.env
+cashflow-backend/node_modules/
+client/node_modules/
